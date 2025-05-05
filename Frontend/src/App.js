@@ -1,7 +1,16 @@
 import logo from './logo.svg';
+import React, { useEffect } from 'react';
 import './App.css';
 
 function App() {
+  useEffect(() => {
+
+      fetch('http://localhost:4000/ping')
+      .then(res => res.text())
+      .then(data => console.log('Backend says:', data))
+      .catch(err => console.error('Error contacting backend:', err));
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
